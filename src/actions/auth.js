@@ -13,12 +13,12 @@ export const login = (email, password) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
 
     const body = JSON.stringify({ email, password });
 
     try {
-        const res = await axios.post('http://134.122.11.95/api/token/', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/token/`, body, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -45,7 +45,7 @@ export const signup = ({ name, email, password, password2 }) => async dispatch =
     const body = JSON.stringify({ name, email, password, password2 }); 
 
     try {
-        const res = await axios.post('http://134.122.11.95/api/accounts/signup', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/accounts/signup`, body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,

@@ -8,13 +8,15 @@ const About = () => {
     const [realtors, setRealtors] = useState([]);
 
     useEffect(() => {
-        axios.defaults.headers = {
-            "Content-Type": "application/json"
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         const getTopSeller = async () => {
             try {
-                const res = await axios.get('http://134.122.11.95/api/realtors/topseller');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/realtors/topseller`, config);
                 setTopSeller(res.data);
             }
             catch (err) {
@@ -26,13 +28,15 @@ const About = () => {
     }, []);
 
     useEffect(() => {
-        axios.defaults.headers = {
-            "Content-Type": "application/json"
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         const getRealtors = async () => {
             try {
-                const res = await axios.get('http://134.122.11.95/api/realtors/');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/realtors/`, config);
                 setRealtors(res.data);
             }
             catch (err) {

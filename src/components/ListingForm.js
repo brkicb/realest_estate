@@ -26,12 +26,14 @@ const ListingForm = (props) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        axios.defaults.headers = {
-            "Content-Type": "application/json"
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         setLoading(true);
-        axios.post('http://134.122.11.95/api/listings/search', { sale_type, price, bedrooms, home_type, bathrooms, sqft, days_listed, has_photos, open_house, keywords })
+        axios.post(`${process.env.REACT_APP_API_URL}/api/listings/search`, { sale_type, price, bedrooms, home_type, bathrooms, sqft, days_listed, has_photos, open_house, keywords }, config)
         .then(res => {
             setLoading(false);
             props.setListings(res.data);

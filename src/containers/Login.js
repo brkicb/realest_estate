@@ -37,7 +37,14 @@ const Login = ({ login, isAuthenticated }) => {
             <p className='auth__lead'>Sign into your Account</p>
             <form className='auth__form' onSubmit={e => onSubmit(e)}>
                 <div className='auth__form__group'>
-                    <input className='auth__form__input' type='email' placeholder='Email' name='email' value={email} onChange={e => onChange(e)} required />
+                    <input 
+                        className='auth__form__input'
+                        type='email'
+                        placeholder='Email'
+                        name='email' value={email}
+                        onChange={e => onChange(e)}
+                        required
+                    />
                 </div>
                 <div className='auth__form__group'>
                     <input

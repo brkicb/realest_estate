@@ -27,12 +27,14 @@ const Contact = ({ setAlert }) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        axios.defaults.headers = {
-            "Content-Type": "application/json"
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         setLoading(true);
-        axios.post('http://134.122.11.95/api/contacts/', { name, email, subject, message })
+        axios.post(`${process.env.REACT_APP_API_URL}/api/contacts/`, { name, email, subject, message }, config)
         .then(res => {
             setAlert('Message Sent', 'success');
             setLoading(false);
@@ -85,7 +87,7 @@ const Contact = ({ setAlert }) => {
                     value={subject} 
                     required 
                 />
-                <label className='contact__form__label' htmlFor='message'>Message*</label>
+                <label className='contact__form__label' htmlFor='message'>Message</label>
                 <textarea 
                     className='contact__form__textarea'
                     name='message'
@@ -94,7 +96,6 @@ const Contact = ({ setAlert }) => {
                     placeholder='Message'
                     onChange={e => onChange(e)} 
                     value={message} 
-                    required 
                 />
                 {loading ?
                     <div className='contact__form__loader'>

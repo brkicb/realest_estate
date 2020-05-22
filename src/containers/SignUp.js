@@ -43,10 +43,26 @@ const SignUp = ({ setAlert, signup, isAuthenticated }) => {
             <p className='auth__lead'>Create your Account</p>
             <form className='auth__form' onSubmit={e => onSubmit(e)}>
                 <div className='auth__form__group'>
-                    <input className='auth__form__input' type='name' placeholder='Name' name='name' value={name} onChange={e => onChange(e)} required />
+                    <input 
+                        className='auth__form__input'
+                        type='text'
+                        placeholder='Name'
+                        name='name'
+                        value={name}
+                        onChange={e => onChange(e)}
+                        required 
+                    />
                 </div>
                 <div className='auth__form__group'>
-                    <input className='auth__form__input' type='email' placeholder='Email' name='email' value={email} onChange={e => onChange(e)} required />
+                    <input 
+                        className='auth__form__input'
+                        type='email'
+                        placeholder='Email'
+                        name='email'
+                        value={email}
+                        onChange={e => onChange(e)}
+                        required 
+                    />
                 </div>
                 <div className='auth__form__group'>
                     <input

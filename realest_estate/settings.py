@@ -76,6 +76,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'realest_estate.wsgi.application'
 
+# remove databases and email backends in production and store them in
+# a local_settings.py file on the server
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'realest_estate',
+        'USER': 'postgres',
+        'PASSWORD': 'password123',
+        'HOST': 'localhost'
+    }
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '# your email #'
+EMAIL_HOST_PASSWORD = '# your app password #'
+EMAIL_USE_TLS = True
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

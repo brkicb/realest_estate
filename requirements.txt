@@ -6,6 +6,6 @@ djangorestframework-simplejwt==4.4.0
 Pillow==7.0.0
 psycopg2==2.8.4
 psycopg2-binary==2.8.4
-PyJWT==1.7.1
+PyJWT==2.4.0
 pytz==2019.3
 sqlparse==0.3.1
